@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Keyboard, StyleSheet, Text, View, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView, ScrollView, Keyboard, StyleSheet, Text, View, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
 import Task from './components/Task';
 
 export default function App() {
@@ -20,11 +20,12 @@ export default function App() {
 
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       
 
       {/*tODAYS TASK*/}
-      <View style={styles.tasksWrapper}>
+      <ScrollView style={styles.scrollView}>
+       {/* <View style={styles.tasksWrapper}> */}
         <Text style={styles.sectionTitle}>Today's Tasks</Text>
 
         <View style={styles.items}>
@@ -41,7 +42,7 @@ export default function App() {
           {/* <Task text= {'Task 1'}/>
           <Task text = {'Task 2'}/> */}
         </View>
-      </View>
+      </ScrollView>
 
       {/* Write a task section */}
       <KeyboardAvoidingView 
@@ -55,7 +56,7 @@ export default function App() {
           </View>
         </TouchableOpacity>
         </KeyboardAvoidingView>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -78,7 +79,7 @@ items: {
 },
 writeTaskWrapper: {
   position: 'absolute',
-  bottom: 60,
+  bottom: 30,
   width: '100%',
   flexDirection: 'row',
   justifyContent: 'space-around',
@@ -105,4 +106,9 @@ addWrapper: {
   borderWidth: 1,
 },
 addText: {},
+scrollView: {
+  paddingTop: 30,
+  backgroundColor: '#EBEAED',
+  marginHorizontal: 20,
+},
 });
